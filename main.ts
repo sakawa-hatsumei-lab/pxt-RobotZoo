@@ -115,7 +115,7 @@ namespace ロボット動物園 {
 
         // pins.servoWritePin(AnalogPin.P15, 180);
         // pins.servoWritePin(AnalogPin.P16, 0);
-        
+
         basic.pause(_duration * 1000);
     }
 
