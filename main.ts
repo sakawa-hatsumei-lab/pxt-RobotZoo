@@ -6,8 +6,8 @@ basic.showLeds(`
     . # # # .
     `);
 
+// TODO
 /*
-  ## TODO
   - Add a reference for your blocks here
   - Add "icon.png" image (300x200) in the root folder
   - Add "- beta" to the GitHub project description if you are still iterating it.
@@ -21,9 +21,10 @@ basic.showLeds(`
  * servo:P15, P16
  */
 
+//リファレンス
 /*
-   https://makecode.microbit.org/blocks/custom
-   https://makecode.com/extensions/getting-started/simple-extension
+ * https://makecode.microbit.org/blocks/custom
+ * https://makecode.com/extensions/getting-started/simple-extension
  */
 
 
@@ -35,7 +36,6 @@ enum presetEyeBrightness {
     よわく = 256
 }
 let eyeBrightness = presetEyeBrightness.ふつう;
-
 
 // 進む方向
 enum direction {
@@ -50,6 +50,7 @@ enum speed {
     はやく = 0,
     ふつう = 0,
     ゆっくり = 0
+
 }
 
 // 鳴き声のプリセット
@@ -140,6 +141,7 @@ namespace ロボット動物園 {
      * 止める時間：秒
      */
     //% block
+
     export function とまる(_duration: number): void {
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
