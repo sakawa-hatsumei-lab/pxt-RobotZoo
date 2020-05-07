@@ -40,12 +40,14 @@ let eyeBrightness = presetEyeBrightness.ふつう;
 // 進む方向
 enum direction {
     まえ = 0,
-    うしろ = 1
+    うしろ = 1,
+    みぎまわり = 2,
+    ひだりまわり = 3
 }
 
 //スピード
 enum speed {
-    はやい = 0,
+    はやく = 0,
     ふつう = 0,
     ゆっくり = 0
 }
