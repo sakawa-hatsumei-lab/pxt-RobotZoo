@@ -72,15 +72,13 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block
-    export function ちょこちょこ(_n: number) {
-        for (let index = 0; index < _n; index++) {
-            pins.servoWritePin(AnalogPin.P15, 48)
-            pins.servoWritePin(AnalogPin.P16, 90)
-            basic.pause(200)
-            pins.servoWritePin(AnalogPin.P15, 90)
-            pins.servoWritePin(AnalogPin.P16, 122)
-            basic.pause(200)
-        }
+    export function ちょこちょこ() {
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            basic.pause(200);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 122);
+            basic.pause(200);
     }
 
     /**
