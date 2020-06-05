@@ -47,8 +47,8 @@ enum direction {
 
 //スピード
 enum speed {
-    はやく = 0,
     ふつう = 0,
+    はやく = 0,
     ゆっくり = 0
 
 }
@@ -74,12 +74,16 @@ namespace ロボット動物園 {
      */
     //% block
     export function ちょこちょこ() {
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            basic.pause(200);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 122);
-            basic.pause(200);
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        basic.pause(200);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 122);
+        basic.pause(200);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     /**
@@ -91,8 +95,11 @@ namespace ロボット動物園 {
     //% block
     export function まえにすすむ(_dir: direction, _speed: number, _duration: number): void {
         let sp = Math.map(_speed, 0, 100, 0, 90);
-        // pins.servoWritePin(AnalogPin.P15, 90 + sp);
-        // pins.servoWritePin(AnalogPin.P16, 90 - sp);
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 122);
+
+        //pins.servoWritePin(AnalogPin.P15, 90 + sp);
+        //pins.servoWritePin(AnalogPin.P16, 90 - sp);
 
         // pins.servoWritePin(AnalogPin.P15, 180);
         // pins.servoWritePin(AnalogPin.P16, 0);
@@ -109,6 +116,9 @@ namespace ロボット動物園 {
     //% block
     export function うしろにさがる(_dir: direction, _speed: number, _duration: number): void {
         let sp = Math.map(_speed, 0, 100, 0, 90);
+        pins.servoWritePin(AnalogPin.P15, 122);
+        pins.servoWritePin(AnalogPin.P16, 48);
+
         // pins.servoWritePin(AnalogPin.P15, 90 + sp);
         // pins.servoWritePin(AnalogPin.P16, 90 - sp);
 
@@ -160,6 +170,16 @@ namespace ロボット動物園 {
     }
 
     /**
+     * 目を開ける
+     * 明るさ
+     */
+    //% block
+    export function めをあける(): void {
+        pins.analogWritePin(AnalogPin.P0, eyeBrightness);
+        pins.analogWritePin(AnalogPin.P1, eyeBrightness);
+    }
+
+    /**
      * ロボットのまばたき
      * 明るさ
      */
@@ -192,7 +212,7 @@ namespace ロボット動物園 {
     //% block
     export function なきごえ(_animal: sound, _duration: number): void {
         // speaker
-        music.playTone(Note.C, _duration);
+        //music.playTone(Note.C, _duration);
     }
 
     /*
