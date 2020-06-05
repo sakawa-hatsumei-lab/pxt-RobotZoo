@@ -6,6 +6,8 @@ basic.showLeds(`
     . # # # .
     `);
 
+pins.analogSetPitchPin(AnalogPin.P2)
+
 // TODO
 /*
   - Add a reference for your blocks here
