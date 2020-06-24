@@ -9,7 +9,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "sample.ts"
+        "samples.ts"
     ],
     "testFiles": [
         "test.ts"
