@@ -75,6 +75,7 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block
+    /*
     export function ちょこちょこ() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 90);
@@ -87,6 +88,7 @@ namespace ロボット動物園 {
         pins.digitalWritePin(DigitalPin.P15, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
     }
+    */
 
     /**
      * ロボットが進む向き、スピード、動く時間を決める
