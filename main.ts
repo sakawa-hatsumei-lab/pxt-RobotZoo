@@ -163,7 +163,7 @@ namespace ロボット動物園 {
      * 直前の動きを指定した時間続ける
      * 止める時間：秒
      */
-    //% block
+    //% block="$_duration|ミリ秒間 つづける"
     //% _duration.shadow="timePicker"
     export function つづける(_duration: number): void {
         basic.pause(_duration);
@@ -173,7 +173,7 @@ namespace ロボット動物園 {
      * ロボットを指定した時間止める
      * 止める時間：秒
      */
-    //% block
+    //% block="じっとする : $_duration|ミリ秒"
     //% _duration.shadow="timePicker"
     export function じっとする(_duration: number): void {
         pins.servoWritePin(AnalogPin.P15, 90);
