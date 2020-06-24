@@ -50,7 +50,7 @@ enum leftRight {
 }
 
 //スピード
-enum speed {
+enum presetSpeed {
     ふつう = 70,
     はやく = 100,
     ゆっくり = 40
@@ -68,7 +68,7 @@ enum sound {
  * P15 : left f180
  * P16 : right f0
  */
-//% weight=100 color=#ff8308 icon=""
+//% weight=200 color=#ff8308 icon=""
 namespace ロボット動物園 {
     pins.servoWritePin(AnalogPin.P15, 90);
     pins.servoWritePin(AnalogPin.P16, 90);
@@ -82,8 +82,10 @@ namespace ロボット動物園 {
      * スピード：0 ~ 100
      * 進む時間：秒
      */
-    //% block
-    export function まえにすすむ(_speed: number, _duration: number): void {
+    //% block="まえにすすむ : $_duration|ミリ秒間 $_speed"
+    // _speed.min=0 _speed.max=100 _speed.defl=50
+    //% _duration.shadow="timePicker"
+    export function まえにすすむ(_speed: presetSpeed, _duration: number): void {
         let sp = Math.map(_speed, 0, 100, 0, 90);
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 122);
@@ -94,7 +96,7 @@ namespace ロボット動物園 {
         // pins.servoWritePin(AnalogPin.P15, 180);
         // pins.servoWritePin(AnalogPin.P16, 0);
 
-        basic.pause(_duration * 1000);
+        basic.pause(_duration);
     }
 
     /**
@@ -103,7 +105,8 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block
-    export function うしろにさがる(_speed: number, _duration: number): void {
+    //% _duration.shadow="timePicker"
+    export function うしろにさがる(_speed: presetSpeed, _duration: number): void {
         let sp = Math.map(_speed, 0, 100, 0, 90);
         pins.servoWritePin(AnalogPin.P15, 122);
         pins.servoWritePin(AnalogPin.P16, 48);
@@ -114,7 +117,7 @@ namespace ロボット動物園 {
         // pins.servoWritePin(AnalogPin.P15, 180);
         // pins.servoWritePin(AnalogPin.P16, 0);
 
-        basic.pause(_duration * 1000);
+        basic.pause(_duration);
     }
 
     /**
@@ -124,7 +127,8 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block
-    export function まがる(_dir: leftRight, _speed: number, _duration: number): void {
+    //% _duration.shadow="timePicker"
+    export function まがる(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
         if(_dir==0){
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 100);
@@ -132,7 +136,7 @@ namespace ロボット動物園 {
             pins.servoWritePin(AnalogPin.P15, 122);
             pins.servoWritePin(AnalogPin.P16, 80);
         }
-        basic.pause(_duration * 1000);
+        basic.pause(_duration);
     }
 
     /**
@@ -142,7 +146,8 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block
-    export function ふりむく(_dir: leftRight, _speed: number, _duration: number): void {
+    //% _duration.shadow="timePicker"
+    export function ふりむく(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
         let sp = Math.map(_speed, 0, 100, 0, 90);
         if(_dir==0){
             pins.servoWritePin(AnalogPin.P15, 48);
@@ -151,7 +156,7 @@ namespace ロボット動物園 {
             pins.servoWritePin(AnalogPin.P15, 122);
             pins.servoWritePin(AnalogPin.P16, 122);
         }
-        basic.pause(_duration * 1000);
+        basic.pause(_duration);
     }
 
     /**
@@ -169,12 +174,13 @@ namespace ロボット動物園 {
      * 止める時間：秒
      */
     //% block
+    //% _duration.shadow="timePicker"
     export function じっとする(_duration: number): void {
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.digitalWritePin(DigitalPin.P15, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
-        basic.pause(_duration * 1000);
+        basic.pause(_duration);
     }
 
     /**
