@@ -51,7 +51,7 @@ enum leftRight {
 
 //スピード
 enum presetSpeed {
-    ふつう = 70,
+    ふつうに = 70,
     はやく = 100,
     ゆっくり = 40
 
@@ -82,7 +82,7 @@ namespace ロボット動物園 {
      * スピード：0 ~ 100
      * 進む時間：秒
      */
-    //% block="まえにすすむ : $_duration|ミリ秒間 $_speed"
+    //% block=" $_speed|まえにすすむ : $_duration|ミリ秒間"
     // _speed.min=0 _speed.max=100 _speed.defl=50
     //% _duration.shadow="timePicker"
     export function まえにすすむ(_speed: presetSpeed, _duration: number): void {
