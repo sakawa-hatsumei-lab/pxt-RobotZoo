@@ -6,8 +6,6 @@ basic.showLeds(`
     . # # # .
     `);
 
-pins.analogSetPitchPin(AnalogPin.P2)
-
 // TODO
 /*
   - Add a reference for your blocks here
@@ -27,6 +25,8 @@ pins.analogSetPitchPin(AnalogPin.P2)
 /*
  * https://makecode.microbit.org/blocks/custom
  * https://makecode.com/extensions/getting-started/simple-extension
+ * https://makecode.com/defining-blocks
+ * https://makecode.com/playground
  */
 
 
@@ -75,6 +75,7 @@ namespace ロボット動物園 {
     pins.digitalWritePin(DigitalPin.P15, 0);
     pins.digitalWritePin(DigitalPin.P16, 0);
     let eyeBrightness = presetEyeBrightness.ふつう;
+    pins.analogSetPitchPin(AnalogPin.P2);
 
     /**
      * ロボットが進む向き、スピード、動く時間を決める
@@ -158,8 +159,9 @@ namespace ロボット動物園 {
      * 止める時間：秒
      */
     //% block
-    export function つづける(_duration: number): void {
-        basic.pause(_duration * 1000);
+    //% msgpack.shadow="timePicker"
+    export function つづける(ms: number): void {
+        basic.pause(ms);
     }
 
     /**
@@ -228,7 +230,8 @@ namespace ロボット動物園 {
     /*
     export function なきごえ(_animal: sound, _duration: number): void {
         // speaker
-        //music.playTone(Note.C, _duration);
+        pins.analogSetPitchPin(AnalogPin.P2);
+        music.playTone(Note.C, _duration);
     }
     */
 
