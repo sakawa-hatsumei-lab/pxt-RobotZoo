@@ -159,9 +159,9 @@ namespace ロボット動物園 {
      * 止める時間：秒
      */
     //% block
-    //% msgpack.shadow="timePicker"
-    export function つづける(ms: number): void {
-        basic.pause(ms);
+    //% _duration.shadow="timePicker"
+    export function つづける(_duration: number): void {
+        basic.pause(_duration);
     }
 
     /**
