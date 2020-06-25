@@ -26,10 +26,14 @@ namespace ロボット動物園 {
     export function _すいすい() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 100);
-        basic.pause(200);
+        basic.pause(500);
         pins.servoWritePin(AnalogPin.P15, 80);
         pins.servoWritePin(AnalogPin.P16, 122);
-        basic.pause(200);
+        basic.pause(500);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
     
 
