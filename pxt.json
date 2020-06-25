@@ -1,6 +1,6 @@
 {
     "name": "pxt-robotzoo",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -8,11 +8,15 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "samples.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": false,
+    "supportedTargets": [
+        "microbit"
+    ],
     "preferredEditor": "tsprj"
 }
