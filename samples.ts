@@ -1,7 +1,7 @@
 namespace ロボット動物園 {
     /**
      * 動きサンプル1：
-     * 左右交互に少しずつ進む
+     * 左右交互に少しずつ前に進む
      */
     //% block
     export function _ちょこちょこ() {
@@ -9,7 +9,7 @@ namespace ロボット動物園 {
         pins.servoWritePin(AnalogPin.P16, 90);
         basic.pause(200);
         pins.servoWritePin(AnalogPin.P15, 90);
-        pins.servoWritePin(AnalogPin.P16, 122);
+        pins.servoWritePin(AnalogPin.P16, 132);
         basic.pause(200);
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
@@ -22,11 +22,20 @@ namespace ロボット動物園 {
      * 緩やかにカーブしながら前に進む
      */
     //% block
-    /*
+    
     export function _すいすい() {
-        
+        pins.servoWritePin(AnalogPin.P15, 40);
+        pins.servoWritePin(AnalogPin.P16, 100);
+        basic.pause(700);
+        pins.servoWritePin(AnalogPin.P15, 80);
+        pins.servoWritePin(AnalogPin.P16, 130);
+        basic.pause(700);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
-    */
+    
 
     /**
      * 動きサンプル3：
@@ -35,8 +44,8 @@ namespace ロボット動物園 {
     //% block
     export function _つんつん() {
         pins.servoWritePin(AnalogPin.P15, 48);
-        pins.servoWritePin(AnalogPin.P16, 122);
-        basic.pause(350);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(300);
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.digitalWritePin(DigitalPin.P15, 0);
@@ -49,12 +58,44 @@ namespace ロボット動物園 {
      * 前に進んでどこかを向き、また前に進む
      */
     //% block
-    /*
-    export function _ふらふら() {
-        
-    }
-    */
+    export function _うろうろ() {
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(500);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        basic.pause(700);
 
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 48);
+        basic.pause(500);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        basic.pause(100);
+
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(700);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        basic.pause(700);
+
+        pins.servoWritePin(AnalogPin.P15, 132);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(800);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        basic.pause(300);
+    }
+    
     /**
      * 動きサンプル5：
      * 少し進んであたりを見る
@@ -62,40 +103,40 @@ namespace ロボット動物園 {
     //% block
     export function _きょろきょろ() {
         pins.servoWritePin(AnalogPin.P15, 48);
-        pins.servoWritePin(AnalogPin.P16, 122);
+        pins.servoWritePin(AnalogPin.P16, 132);
         basic.pause(500);
 
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 48);
-        basic.pause(150);
-        pins.servoWritePin(AnalogPin.P15, 90);
-        pins.servoWritePin(AnalogPin.P16, 90);
-        pins.digitalWritePin(DigitalPin.P15, 0);
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        basic.pause(200);
-
-        pins.servoWritePin(AnalogPin.P15, 122);
-        pins.servoWritePin(AnalogPin.P16, 122);
         basic.pause(300);
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.digitalWritePin(DigitalPin.P15, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
-        basic.pause(200);
+        basic.pause(500);
 
-        pins.servoWritePin(AnalogPin.P15, 48);
-        pins.servoWritePin(AnalogPin.P16, 48);
-        basic.pause(150);
+        pins.servoWritePin(AnalogPin.P15, 132);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(600);
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.digitalWritePin(DigitalPin.P15, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
-        basic.pause(100);
+        basic.pause(500);
+
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 48);
+        basic.pause(300);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.digitalWritePin(DigitalPin.P15, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        basic.pause(300);
     }
 
     /**
      * 動きサンプル6:
-     * 勢いよく前に進む
+     * 勢いよくまっすぐ前に進む
      */
     //% block
     export function _ぐんぐん() {
