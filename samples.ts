@@ -13,17 +13,17 @@ namespace ロボット動物園 {
         for(let i = 0; i < 4; i++) {
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 90);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(200);
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 132);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(200);
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
         }
     }
 
@@ -38,17 +38,17 @@ namespace ロボット動物園 {
         for(let i = 0; i < 2; i++) {
             pins.servoWritePin(AnalogPin.P15, 40);
             pins.servoWritePin(AnalogPin.P16, 100);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(700);
             pins.servoWritePin(AnalogPin.P15, 80);
             pins.servoWritePin(AnalogPin.P16, 130);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(700);
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
         }
     }
     
@@ -64,13 +64,13 @@ namespace ロボット動物園 {
         for(let i = 0; i < 8; i++) {
             pins.servoWritePin(AnalogPin.P15, 68);
             pins.servoWritePin(AnalogPin.P16, 112);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(300);
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(150);
         }
     }
@@ -85,46 +85,46 @@ namespace ロボット動物園 {
     export function _うろうろ() {
         pins.servoWritePin(AnalogPin.P15, 68);
         pins.servoWritePin(AnalogPin.P16, 112);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(500);
         //pins.servoWritePin(AnalogPin.P15, 90);
         //pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(700);
 
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 48);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(500);
         //pins.servoWritePin(AnalogPin.P15, 90);
         //pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(100);
 
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 132);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(700);
         //pins.servoWritePin(AnalogPin.P15, 90);
         //pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(700);
 
         pins.servoWritePin(AnalogPin.P15, 132);
         pins.servoWritePin(AnalogPin.P16, 132);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(800);
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(300);
     }
     
@@ -139,40 +139,40 @@ namespace ロボット動物園 {
         for(let i = 0; i < 3; i++) {
             pins.servoWritePin(AnalogPin.P15, 58);
             pins.servoWritePin(AnalogPin.P16, 122);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(500);
 
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 48);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(150);
             //pins.servoWritePin(AnalogPin.P15, 90);
             //pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(500);
 
             pins.servoWritePin(AnalogPin.P15, 132);
             pins.servoWritePin(AnalogPin.P16, 132);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(300);
             //pins.servoWritePin(AnalogPin.P15, 90);
             //pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(500);
 
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 48);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(150);
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            ロボット動物園.めをあける();
+            //ロボット動物園.めをあける();
             basic.pause(300);
         }
     }
@@ -187,7 +187,7 @@ namespace ロボット動物園 {
     export function _ぐんぐん() {
         pins.servoWritePin(AnalogPin.P15, 0);
         pins.servoWritePin(AnalogPin.P16, 180);
-        ロボット動物園.めをあける();
+        //ロボット動物園.めをあける();
         basic.pause(700);
     }
 }
