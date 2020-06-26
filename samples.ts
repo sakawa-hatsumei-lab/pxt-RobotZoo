@@ -34,6 +34,7 @@ namespace ロボット動物園 {
     //% block
     //% group="かんさつ"
     //% weight=500
+    //% block=""
     export function _すいすい() {
         for(let i = 0; i < 2; i++) {
             pins.servoWritePin(AnalogPin.P15, 40);
