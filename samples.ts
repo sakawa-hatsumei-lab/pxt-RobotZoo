@@ -4,6 +4,7 @@ namespace ロボット動物園 {
      * 左右交互に少しずつ前に進む
      */
     //% block
+    //% group="かんさつ"
     export function _ちょこちょこ() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 90);
@@ -22,7 +23,7 @@ namespace ロボット動物園 {
      * 緩やかにカーブしながら前に進む
      */
     //% block
-    
+    //% group="かんさつ"
     export function _すいすい() {
         pins.servoWritePin(AnalogPin.P15, 40);
         pins.servoWritePin(AnalogPin.P16, 100);
@@ -42,6 +43,7 @@ namespace ロボット動物園 {
      * ちょっと進んでちょっと止まる
      */
     //% block
+    //% group="かんさつ"
     export function _つんつん() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 132);
@@ -58,6 +60,7 @@ namespace ロボット動物園 {
      * 前に進んでどこかを向き、また前に進む
      */
     //% block
+    //% group="かんさつ"
     export function _うろうろ() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 132);
@@ -101,6 +104,7 @@ namespace ロボット動物園 {
      * 少し進んであたりを見る
      */
     //% block
+    //% group="かんさつ"
     export function _きょろきょろ() {
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 132);
@@ -139,6 +143,7 @@ namespace ロボット動物園 {
      * 勢いよくまっすぐ前に進む
      */
     //% block
+    //% group="かんさつ"
     export function _ぐんぐん() {
         pins.servoWritePin(AnalogPin.P15, 0);
         pins.servoWritePin(AnalogPin.P16, 180);

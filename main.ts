@@ -83,6 +83,8 @@ let eyeBrightness = presetEyeBrightness.ふつう;
  * P16 : right f0
  */
 
+//% weight=200 color=#ff8308 icon=""
+//% groups="['かんさつ','つくる']"
 
 //つくる
 namespace ロボット動物園 {
