@@ -118,14 +118,13 @@ namespace ロボット動物園 {
     // _duration.shadow="timePicker"
     //% group="つくる"
     //% block="じっとする"
+    //% weight=50
     export function じっとする(): void {
-        // pins.servoWritePin(AnalogPin.P15, 90);
-        // pins.servoWritePin(AnalogPin.P16, 90);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
         // ロボット動物園.めをあける();
-        basic.pause(500);
-        ロボット動物園.めをあける();
         basic.pause(500);
     }
 
