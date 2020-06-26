@@ -52,16 +52,30 @@ enum leftRight {
 //スピード
 enum presetSpeed {
     ふつうに = 42,
+    //mid
     はやく = 90,
-    ゆっくり = 60
-
+    //fast
+    ゆっくり = 60,
+    //slow
+    とまる = 0
+    //stop
 }
 
-// 鳴き声のプリセット
-enum sound {
-    cat = 0,
-    dog = 1
-}
+// 鳴き声
+enum sound {}
+
+//初期設定
+//スピーカー
+pins.analogSetPitchPin(AnalogPin.P2);
+music.setVolume(0);
+//サーボモーター
+pins.servoWritePin(AnalogPin.P15, 90);
+pins.servoWritePin(AnalogPin.P16, 90);
+pins.analogWritePin(AnalogPin.P15, 0);
+pins.analogWritePin(AnalogPin.P16, 0);
+//LED
+let eyeBrightness = presetEyeBrightness.ふつう;
+ロボット動物園.めをあける();
 
 /**
  * ロボット動物園
@@ -69,19 +83,182 @@ enum sound {
  * P16 : right f0
  */
 //% weight=200 color=#ff8308 icon=""
+//% groups="['かんさつ','つくる']"
+//かんさつ
 namespace ロボット動物園 {
-    //初期設定
-    //スピーカー
-    pins.analogSetPitchPin(AnalogPin.P2);
-    music.setVolume(0);
-    //サーボモーター
-    pins.servoWritePin(AnalogPin.P15, 90);
-    pins.servoWritePin(AnalogPin.P16, 90);
-    pins.analogWritePin(AnalogPin.P15, 0);
-    pins.analogWritePin(AnalogPin.P16, 0);
-    //LED
-    let eyeBrightness = presetEyeBrightness.ふつう;
-    ロボット動物園.めをあける();
+    /**
+     * 動きサンプル1 : 
+     * 左右交互に少しずつ前に進む
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=600
+    export function _ちょこちょこ() {
+        for(let i = 0; i < 4; i++) {
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            basic.pause(200);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 132);
+            basic.pause(200);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+        }
+    }
+
+    /**
+     * 動きサンプル2 : 
+     * 緩やかにカーブしながら前に進む
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=500
+    export function _すいすい() {
+        for(let i = 0; i < 4; i++) {
+            pins.servoWritePin(AnalogPin.P15, 40);
+            pins.servoWritePin(AnalogPin.P16, 100);
+            basic.pause(700);
+            pins.servoWritePin(AnalogPin.P15, 80);
+            pins.servoWritePin(AnalogPin.P16, 130);
+            basic.pause(700);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+        }
+    }
+    
+
+    /**
+     * 動きサンプル3 : 
+     * ちょっと進んでちょっと止まる
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=400
+    export function _つんつん() {
+        for(let i = 0; i < 8; i++) {
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 132);
+            basic.pause(300);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+            basic.pause(150);
+        }
+    }
+
+    /**
+     * 動きサンプル4 : 
+     * 前に進んでどこかを向き、また前に進む
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=300
+    export function _うろうろ() {
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(500);
+        //pins.servoWritePin(AnalogPin.P15, 90);
+        //pins.servoWritePin(AnalogPin.P16, 90);
+        pins.analogWritePin(AnalogPin.P15, 0);
+        pins.analogWritePin(AnalogPin.P16, 0);
+        basic.pause(700);
+
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 48);
+        basic.pause(500);
+        //pins.servoWritePin(AnalogPin.P15, 90);
+        //pins.servoWritePin(AnalogPin.P16, 90);
+        pins.analogWritePin(AnalogPin.P15, 0);
+        pins.analogWritePin(AnalogPin.P16, 0);
+        basic.pause(100);
+
+        pins.servoWritePin(AnalogPin.P15, 48);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(700);
+        //pins.servoWritePin(AnalogPin.P15, 90);
+        //pins.servoWritePin(AnalogPin.P16, 90);
+        pins.analogWritePin(AnalogPin.P15, 0);
+        pins.analogWritePin(AnalogPin.P16, 0);
+        basic.pause(700);
+
+        pins.servoWritePin(AnalogPin.P15, 132);
+        pins.servoWritePin(AnalogPin.P16, 132);
+        basic.pause(800);
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.analogWritePin(AnalogPin.P15, 0);
+        pins.analogWritePin(AnalogPin.P16, 0);
+        basic.pause(300);
+    }
+    
+    /**
+     * 動きサンプル5 : 
+     * 少し進んであたりを見る
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=200
+    export function _きょろきょろ() {
+        for(let i = 0; i < 2; i++) {
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 132);
+            basic.pause(500);
+
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 48);
+            basic.pause(300);
+            //pins.servoWritePin(AnalogPin.P15, 90);
+            //pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+            basic.pause(500);
+
+            pins.servoWritePin(AnalogPin.P15, 132);
+            pins.servoWritePin(AnalogPin.P16, 132);
+            basic.pause(600);
+            //pins.servoWritePin(AnalogPin.P15, 90);
+            //pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+            basic.pause(500);
+
+            pins.servoWritePin(AnalogPin.P15, 48);
+            pins.servoWritePin(AnalogPin.P16, 48);
+            basic.pause(300);
+            pins.servoWritePin(AnalogPin.P15, 90);
+            pins.servoWritePin(AnalogPin.P16, 90);
+            pins.analogWritePin(AnalogPin.P15, 0);
+            pins.analogWritePin(AnalogPin.P16, 0);
+            basic.pause(300);
+        }
+    }
+
+    /**
+     * 動きサンプル6 : 
+     * 勢いよくまっすぐ前に進む
+     */
+    //% block
+    //% group="かんさつ"
+    //% weight=100
+    export function _ぐんぐん() {
+        pins.servoWritePin(AnalogPin.P15, 0);
+        pins.servoWritePin(AnalogPin.P16, 180);
+        basic.pause(700);
+    }
+}
+
+//つくる
+namespace ロボット動物園 {
+    /*********************
+     *ロボット動物園#2 仕様
+     *動きサンプル以外を隠す
+     * //% block=""
+     *********************/
 
     function setServoSpeed(_speed: presetSpeed, _dir:direction){
         let spL = 90 - _speed * _dir;
@@ -89,7 +266,6 @@ namespace ロボット動物園 {
         pins.servoWritePin(AnalogPin.P15, spL);
         pins.servoWritePin(AnalogPin.P16, spR);
         ロボット動物園.めをあける();
-        
     }
 
     function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
@@ -101,13 +277,32 @@ namespace ロボット動物園 {
     }
 
     /**
+     * ロボットを指定した時間止める
+     * 止める時間：秒
+     */
+    //% block="じっとする : $_duration|ミリ秒"
+    //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block="じっとする"
+    export function じっとする(_duration: number): void {
+        pins.servoWritePin(AnalogPin.P15, 90);
+        pins.servoWritePin(AnalogPin.P16, 90);
+        pins.analogWritePin(AnalogPin.P15, 0);
+        pins.analogWritePin(AnalogPin.P16, 0);
+        ロボット動物園.めをあける();
+        basic.pause(_duration);
+    }
+
+    /**
      * ロボットが進む向き、スピード、動く時間を決める
      * スピード：0 ~ 100
      * 進む時間：秒
      */
     //% block=" $_speed|まえにすすむ : $_duration|ミリ秒"
-    // _speed.min=0 _speed.max=100 _speed.defl=50
+    //%_speed.min=0 _speed.max=100 _speed.defl=50
     //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block=""
     export function まえにすすむ(_speed: presetSpeed, _duration: number): void {
         //setServoSpeed(_speed, direction.まえ);
         pins.servoWritePin(AnalogPin.P15, 48);
@@ -122,6 +317,8 @@ namespace ロボット動物園 {
      */
     //% block=" $_speed|うしろにさがる : $_duration|ミリ秒"
     //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block=""
     export function うしろにさがる(_speed: presetSpeed, _duration: number): void {
         //setServoSpeed(_speed, direction.うしろ);
         pins.servoWritePin(AnalogPin.P15, 132);
@@ -137,6 +334,8 @@ namespace ロボット動物園 {
      */
     //% block
     //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block=""
     export function まがる(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
         if(_dir==1){
             pins.servoWritePin(AnalogPin.P15, 48);
@@ -156,6 +355,8 @@ namespace ロボット動物園 {
      */
     //% block
     //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block=""
     export function ふりむく(_lr: leftRight, _speed: presetSpeed, _duration: number): void {
         //setServoLeftRight(_speed, _lr);
         if(_lr==1){
@@ -174,22 +375,9 @@ namespace ロボット動物園 {
      */
     //% block="$_duration|ミリ秒間 つづける"
     //% _duration.shadow="timePicker"
+    //% group="つくる"
+    //% block=""
     export function つづける(_duration: number): void {
-        basic.pause(_duration);
-    }
-
-    /**
-     * ロボットを指定した時間止める
-     * 止める時間：秒
-     */
-    //% block="じっとする : $_duration|ミリ秒"
-    //% _duration.shadow="timePicker"
-    export function じっとする(_duration: number): void {
-        //pins.servoWritePin(AnalogPin.P15, 90);
-        //pins.servoWritePin(AnalogPin.P16, 90);
-        pins.analogWritePin(AnalogPin.P15, 0);
-        pins.analogWritePin(AnalogPin.P16, 0);
-        ロボット動物園.めをあける();
         basic.pause(_duration);
     }
 
@@ -197,6 +385,8 @@ namespace ロボット動物園 {
      * ロボットの目の明るさを決める
      */
     //% block
+    //% group="つくる"
+    //% block=""
     export function めぢから(_eBri: presetEyeBrightness): void {
         eyeBrightness = _eBri;
         //ロボット動物園.めをあける();
@@ -206,6 +396,8 @@ namespace ロボット動物園 {
      * 目を開ける
      */
     //% block
+    //% group="つくる"
+    //% block=""
     export function めをあける(): void {
         pins.analogWritePin(AnalogPin.P0, eyeBrightness);
         pins.analogWritePin(AnalogPin.P1, eyeBrightness);
@@ -215,6 +407,8 @@ namespace ロボット動物園 {
      * 目をつぶる
      */
     //% block
+    //% group="つくる"
+    //% block=""
     export function めをつぶる(): void {
         pins.analogWritePin(AnalogPin.P0, 0);
         pins.analogWritePin(AnalogPin.P1, 0);
@@ -224,6 +418,8 @@ namespace ロボット動物園 {
      * ロボットのまばたき
      */
     //% block
+    //% group="つくる"
+    //% block=""
     export function まばたき(): void {
         ロボット動物園.めをあける();
         basic.pause(400);
@@ -236,16 +432,14 @@ namespace ロボット動物園 {
      * ロボットの鳴き声を決める
      * 鳴き声の種類、鳴く時間
      */
-    //% block
-    /*
+    //% block=""
+    //% group="つくる"
     export function なきごえ(_animal: sound, _duration: number): void {
         // speaker
         pins.analogSetPitchPin(AnalogPin.P2);
         music.playTone(Note.C, _duration);
     }
-    */
 
-    /*
     let musicFlag = 0
     music.onEvent(MusicEvent.MelodyStarted, function () {
         musicFlag = 1
@@ -253,5 +447,4 @@ namespace ロボット動物園 {
     music.onEvent(MusicEvent.MelodyEnded, function () {
         musicFlag = 0
     })
-    */
 }
