@@ -75,7 +75,7 @@ pins.analogWritePin(AnalogPin.P15, 0);
 pins.analogWritePin(AnalogPin.P16, 0);
 //LED
 let eyeBrightness = presetEyeBrightness.ふつう;
-ロボット動物園.めをあける();
+// ロボット動物園.めをあける();
 
 /**
  * ロボット動物園
@@ -92,21 +92,21 @@ namespace ロボット動物園 {
      * //% block=""
      *********************/
 
-    function setServoSpeed(_speed: presetSpeed, _dir:direction){
-        let spL = 90 - _speed * _dir;
-        let spR = 90 + _speed * _dir;
-        pins.servoWritePin(AnalogPin.P15, spL);
-        pins.servoWritePin(AnalogPin.P16, spR);
-        ロボット動物園.めをあける();
-    }
+    // function setServoSpeed(_speed: presetSpeed, _dir:direction){
+    //     let spL = 90 - _speed * _dir;
+    //     let spR = 90 + _speed * _dir;
+    //     pins.servoWritePin(AnalogPin.P15, spL);
+    //     pins.servoWritePin(AnalogPin.P16, spR);
+    //     ロボット動物園.めをあける();
+    // }
 
-    function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
-        let spL = 90 - _speed * _lr;
-        let spR = 90 - _speed * _lr;
-        pins.servoWritePin(AnalogPin.P15, spL);
-        pins.servoWritePin(AnalogPin.P16, spR)
-        ロボット動物園.めをあける();
-    }
+    // function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
+    //     let spL = 90 - _speed * _lr;
+    //     let spR = 90 - _speed * _lr;
+    //     pins.servoWritePin(AnalogPin.P15, spL);
+    //     pins.servoWritePin(AnalogPin.P16, spR)
+    //     ロボット動物園.めをあける();
+    // }
 
     /**
      * ロボットを指定した時間止める
@@ -117,10 +117,12 @@ namespace ロボット動物園 {
     //% group="つくる"
     //% block="じっとする"
     export function じっとする(): void {
-        pins.servoWritePin(AnalogPin.P15, 90);
-        pins.servoWritePin(AnalogPin.P16, 90);
+        // pins.servoWritePin(AnalogPin.P15, 90);
+        // pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
+        // ロボット動物園.めをあける();
+        basic.pause(500);
         ロボット動物園.めをあける();
         basic.pause(500);
     }
