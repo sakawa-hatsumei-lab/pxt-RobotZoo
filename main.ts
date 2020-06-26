@@ -304,8 +304,8 @@ namespace ロボット動物園 {
      * ロボットを指定した時間止める
      * 止める時間：秒
      */
-    //% block="じっとする : $_duration|ミリ秒"
-    //% _duration.shadow="timePicker"
+    // block="じっとする : $_duration|ミリ秒"
+    // _duration.shadow="timePicker"
     //% group="つくる"
     //% block="じっとする"
     export function じっとする(): void {
