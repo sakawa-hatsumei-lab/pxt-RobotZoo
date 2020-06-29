@@ -32,37 +32,44 @@
 
 //目の明るさ
 enum presetEyeBrightness {
-    ふつう = 500,
-    つよく = 1023,
-    よわく = 128
+    //% block="ふつう"
+    usual = 500,
+    //% block="つよく"
+    strong = 1023,
+    //% block="よわく"
+    weak = 128
 }
 
 // 前後
 enum direction {
-    まえ = 1,
-    うしろ = -1
+    //% block="まえ"
+    forward = 1,
+    //% block="うしろ"
+    backward = -1
 }
 
 // 左右
 enum leftRight {
-    みぎまわり = 1,
-    ひだりまわり = -1
+    //% block="みぎ"
+    right = 1,
+    //% block="ひだり"
+    left = -1
 }
 
 //スピード
 enum presetSpeed {
-    ふつうに = 42,
-    //mid
-    はやく = 90,
-    //fast
-    ゆっくり = 60,
-    //slow
-    とまる = 0
-    //stop
+    //% block="ふつうに"
+    mid = 42,
+    //% block="はやく"
+    fast = 90,
+    //% block="ゆっくり"
+    slow = 60,
+    //% block="とまる"
+    stop = 0
 }
 
 // 鳴き声
-enum sound {}
+enum presetSound {}
 
 //初期設定
 //スピーカー
@@ -74,8 +81,8 @@ pins.servoWritePin(AnalogPin.P16, 90);
 pins.analogWritePin(AnalogPin.P15, 0);
 pins.analogWritePin(AnalogPin.P16, 0);
 //LED
-let eyeBrightness = presetEyeBrightness.ふつう;
-// ロボット動物園.めをあける();
+let eyeBrightness = presetEyeBrightness.usual;
+// RobotZoo.openEyes();
 
 /**
  * ロボット動物園
@@ -83,48 +90,48 @@ let eyeBrightness = presetEyeBrightness.ふつう;
  * P16 : right f0
  */
 
+//% block="ロボット動物園"
 //% weight=200 color=#ff8308 icon=""
 //% groups="['かんさつ','つくる']"
 
+/*********************
+ *ロボット動物園#2 仕様
+ *動きサンプル以外を隠す
+ * //% block=""
+ *********************/
 //つくる
-namespace ロボット動物園 {
-    /*********************
-     *ロボット動物園#2 仕様
-     *動きサンプル以外を隠す
-     * //% block=""
-     *********************/
+namespace RobotZoo {
+    function setServoSpeed(_speed: presetSpeed, _dir:direction){
+        let spL = 90 - _speed * _dir;
+        let spR = 90 + _speed * _dir;
+        pins.servoWritePin(AnalogPin.P15, spL);
+        pins.servoWritePin(AnalogPin.P16, spR);
+        RobotZoo.openEyes();
+    }
 
-    // function setServoSpeed(_speed: presetSpeed, _dir:direction){
-    //     let spL = 90 - _speed * _dir;
-    //     let spR = 90 + _speed * _dir;
-    //     pins.servoWritePin(AnalogPin.P15, spL);
-    //     pins.servoWritePin(AnalogPin.P16, spR);
-    //     ロボット動物園.めをあける();
-    // }
-
-    // function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
-    //     let spL = 90 - _speed * _lr;
-    //     let spR = 90 - _speed * _lr;
-    //     pins.servoWritePin(AnalogPin.P15, spL);
-    //     pins.servoWritePin(AnalogPin.P16, spR)
-    //     ロボット動物園.めをあける();
-    // }
+    function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
+        let spL = 90 - _speed * _lr;
+        let spR = 90 - _speed * _lr;
+        pins.servoWritePin(AnalogPin.P15, spL);
+        pins.servoWritePin(AnalogPin.P16, spR);
+        RobotZoo.openEyes();
+    }
 
     /**
      * ロボットを指定した時間止める
      * 止める時間：秒
      */
-    // block="じっとする : $_duration|ミリ秒"
-    // _duration.shadow="timePicker"
+    //% block="じっとする : $_duration|ミリ秒"
+    //% _duration.shadow="timePicker" _duration.defl=500
     //% group="つくる"
     //% block="じっとする"
-    //% weight=50
-    export function じっとする(): void {
+    //% weight=550
+    export function keepStill(): void {
         pins.servoWritePin(AnalogPin.P15, 90);
         pins.servoWritePin(AnalogPin.P16, 90);
         pins.analogWritePin(AnalogPin.P15, 0);
         pins.analogWritePin(AnalogPin.P16, 0);
-        // ロボット動物園.めをあける();
+        // RobotZoo.openEyes();
         basic.pause(500);
     }
 
@@ -134,12 +141,13 @@ namespace ロボット動物園 {
      * 進む時間：秒
      */
     //% block=" $_speed|まえにすすむ : $_duration|ミリ秒"
-    //%_speed.min=0 _speed.max=100 _speed.defl=50
+    //% _speed.min=0 _speed.max=100
     //% _duration.shadow="timePicker"
     //% group="つくる"
+    //% weight=1000
     //% block=""
-    export function まえにすすむ(_speed: presetSpeed, _duration: number): void {
-        //setServoSpeed(_speed, direction.まえ);
+    export function goStraigt(_speed: presetSpeed, _duration: number): void {
+        // setServoSpeed(_speed, direction.まえ);
         pins.servoWritePin(AnalogPin.P15, 48);
         pins.servoWritePin(AnalogPin.P16, 132);
         basic.pause(_duration);
@@ -153,8 +161,9 @@ namespace ロボット動物園 {
     //% block=" $_speed|うしろにさがる : $_duration|ミリ秒"
     //% _duration.shadow="timePicker"
     //% group="つくる"
+    //% weight=900
     //% block=""
-    export function うしろにさがる(_speed: presetSpeed, _duration: number): void {
+    export function goBack(_speed: presetSpeed, _duration: number): void {
         //setServoSpeed(_speed, direction.うしろ);
         pins.servoWritePin(AnalogPin.P15, 132);
         pins.servoWritePin(AnalogPin.P16, 48);
@@ -167,11 +176,12 @@ namespace ロボット動物園 {
      * スピード：0 ~ 100
      * 進む時間：秒
      */
-    //% block
+    //% block="$_dir|にまがる : $_duration|ミリ秒"
     //% _duration.shadow="timePicker"
     //% group="つくる"
+    //% weight=800
     //% block=""
-    export function まがる(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
+    export function turn(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
         if(_dir==1){
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 100);
@@ -188,12 +198,13 @@ namespace ロボット動物園 {
      * スピード：0 ~ 100
      * 進む時間：秒
      */
-    //% block
+    //% block="$_lr|にふりむく : $_duration|ミリ秒"
     //% _duration.shadow="timePicker"
     //% group="つくる"
+    //% weight=700
     //% block=""
-    export function ふりむく(_lr: leftRight, _speed: presetSpeed, _duration: number): void {
-        //setServoLeftRight(_speed, _lr);
+    export function lookBack(_lr: leftRight, _speed: presetSpeed, _duration: number): void {
+        // setServoLeftRight(_speed, _lr);
         if(_lr==1){
             pins.servoWritePin(AnalogPin.P15, 48);
             pins.servoWritePin(AnalogPin.P16, 48);
@@ -208,32 +219,35 @@ namespace ロボット動物園 {
      * 直前の動きを指定した時間続ける
      * 止める時間：秒
      */
-    //% block="$_duration|ミリ秒間 つづける"
+    //% block="つづける : $_duration|ミリ秒間 "
     //% _duration.shadow="timePicker"
     //% group="つくる"
+    //% weight=600
     //% block=""
-    export function つづける(_duration: number): void {
+    export function keep(_duration: number): void {
         basic.pause(_duration);
     }
 
     /**
      * ロボットの目の明るさを決める
      */
-    //% block
+    //% block="めぢから : $_eBri"
     //% group="つくる"
+    //% weight=500
     //% block=""
-    export function めぢから(_eBri: presetEyeBrightness): void {
+    export function setImpression(_eBri: presetEyeBrightness): void {
         eyeBrightness = _eBri;
-        //ロボット動物園.めをあける();
+        // RobotZoo.openEyes();
     }
 
     /**
      * 目を開ける
      */
-    //% block
+    //% block="めをあける"
     //% group="つくる"
+    //% weight=400
     //% block=""
-    export function めをあける(): void {
+    export function openEyes(): void {
         pins.analogWritePin(AnalogPin.P0, eyeBrightness);
         pins.analogWritePin(AnalogPin.P1, eyeBrightness);
     }
@@ -241,10 +255,11 @@ namespace ロボット動物園 {
     /**
      * 目をつぶる
      */
-    //% block
+    //% block="めをつぶる"
     //% group="つくる"
+    //% weight=300
     //% block=""
-    export function めをつぶる(): void {
+    export function closeEyes(): void {
         pins.analogWritePin(AnalogPin.P0, 0);
         pins.analogWritePin(AnalogPin.P1, 0);
     }
@@ -252,24 +267,38 @@ namespace ロボット動物園 {
     /**
      * ロボットのまばたき
      */
-    //% block
+    //% block="まばたき"
     //% group="つくる"
+    //% weight=200
     //% block=""
-    export function まばたき(): void {
-        ロボット動物園.めをあける();
+    export function blink(): void {
+        RobotZoo.openEyes();
         basic.pause(400);
-        ロボット動物園.めをつぶる();
+        RobotZoo.closeEyes();
         basic.pause(200);
-        ロボット動物園.めをあける();
+        RobotZoo.openEyes();
+    }
+
+    /**
+     * ウインクする
+     */
+    //% block="$lr ウインク"
+    //% group="つくる"
+    //% weight=100
+    //% block=""
+    export function wink(_lr:number): void {
+
     }
 
     /**
      * ロボットの鳴き声を決める
      * 鳴き声の種類、鳴く時間
      */
-    //% block=""
+    //% block="なきごえ"
     //% group="つくる"
-    export function なきごえ(_animal: sound, _duration: number): void {
+    //% weight=50
+    //% block=""
+    export function sound(_animal: presetSound, _duration: number): void {
         // speaker
         pins.analogSetPitchPin(AnalogPin.P2);
         music.playTone(Note.C, _duration);
