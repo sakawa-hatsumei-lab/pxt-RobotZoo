@@ -255,8 +255,8 @@ namespace RobotZoo {
     //% weight=400
     //% block=""
     export function openEyes(): void {
-        pins.analogWritePin(AnalogPin.P0, eyeBrightness);
-        pins.analogWritePin(AnalogPin.P1, eyeBrightness);
+        // pins.analogWritePin(AnalogPin.P0, eyeBrightness);
+        // pins.analogWritePin(AnalogPin.P1, eyeBrightness);
         pins.digitalWritePin(DigitalPin.P15, 1);
         pins.digitalWritePin(DigitalPin.P16, 1);
     }
@@ -269,8 +269,8 @@ namespace RobotZoo {
     //% weight=300
     //% block=""
     export function closeEyes(): void {
-        pins.analogWritePin(AnalogPin.P0, 0);
-        pins.analogWritePin(AnalogPin.P1, 0);
+        // pins.analogWritePin(AnalogPin.P0, 0);
+        // pins.analogWritePin(AnalogPin.P1, 0);
         pins.digitalWritePin(DigitalPin.P15, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
     }
@@ -315,7 +315,7 @@ namespace RobotZoo {
         pins.digitalWritePin(DigitalPin.P16, 0);
         //P2を音声出力のピンに設定
         pins.analogSetPitchPin(AnalogPin.P2);
-        music.playTone(Note.C, _duration);
+        music.playMelody("C5 B A G F E D C ", 120);
         //スピーカーをPWM出力の対象から外す
         pins.digitalWritePin(DigitalPin.P2, 0);
     }
