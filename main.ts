@@ -14,17 +14,21 @@
  */
 
 /* 変更予定
- * 1. LEDはデジタル、他はPWM制御の場合
- * LED:P0,P1 (high/low のみ)
- * sound:P2 (PWM)
- * servo:P15, P16 (PWM)
- * 
- * 2. 全てPWM制御の場合
- * LED:P1 (PWM、左右連動)
- * sound:P2 (PWM、サーボと排他)
- * servo:P15, P16 (PWM、スピーカーと排他)
- * 
+ * LED(digital):P0,P1
+ * sound(PWM):P2
+ * servo(PWM):P15(L), P16(R)
  */
+
+//LEDピン番号
+const ledLeftPin = DigitalPin.P0;
+const ledRightPin = DigitalPin.P1;
+
+//スピーカーピン番号
+const speakerPin = AnalogPin.P2;
+
+//サーボピン番号
+const servoLeftPin = AnalogPin.P15;
+const servoRightPin = AnalogPin.P16;
 
 //目の明るさ
 enum presetEyeBrightness {
@@ -255,10 +259,8 @@ namespace RobotZoo {
     //% weight=400
     //% block=""
     export function openEyes(): void {
-        // pins.analogWritePin(AnalogPin.P0, eyeBrightness);
-        // pins.analogWritePin(AnalogPin.P1, eyeBrightness);
-        pins.digitalWritePin(DigitalPin.P15, 1);
-        pins.digitalWritePin(DigitalPin.P16, 1);
+        pins.digitalWritePin(DigitalPin.P0, 1);
+        pins.digitalWritePin(DigitalPin.P1, 1);
     }
 
     /**
@@ -269,10 +271,8 @@ namespace RobotZoo {
     //% weight=300
     //% block=""
     export function closeEyes(): void {
-        // pins.analogWritePin(AnalogPin.P0, 0);
-        // pins.analogWritePin(AnalogPin.P1, 0);
-        pins.digitalWritePin(DigitalPin.P15, 0);
-        pins.digitalWritePin(DigitalPin.P16, 0);
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
     /**
