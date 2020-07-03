@@ -23,9 +23,7 @@ namespace RobotZoo {
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
             pins.analogWritePin(AnalogPin.P16, 0);
-            
         }
-        basic.pause(300);
     }
 
     /**
@@ -48,10 +46,8 @@ namespace RobotZoo {
             pins.servoWritePin(AnalogPin.P15, 90);
             pins.servoWritePin(AnalogPin.P16, 90);
             pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
-            
+            pins.analogWritePin(AnalogPin.P16, 0);   
         }
-        basic.pause(300);
     }
     
 
