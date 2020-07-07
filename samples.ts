@@ -12,20 +12,18 @@ namespace RobotZoo {
     //% weight=600
     export function toddle() {
         for(let i = 0; i < 4; i++) {
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 90);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 48);
             basic.pause(200);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 132);
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 90);
             basic.pause(200);
 
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
-            
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
         }
-        basic.pause(300);
     }
 
     /**
@@ -37,21 +35,20 @@ namespace RobotZoo {
     //% weight=500
     export function swift() {
         for(let i = 0; i < 2; i++) {
-            pins.servoWritePin(AnalogPin.P15, 40);
-            pins.servoWritePin(AnalogPin.P16, 100);
+            pins.servoWritePin(servoLeftPin, 100);
+            pins.servoWritePin(servoRightPin, 40);
             basic.pause(700);
 
-            pins.servoWritePin(AnalogPin.P15, 80);
-            pins.servoWritePin(AnalogPin.P16, 140);
+            pins.servoWritePin(servoLeftPin, 140);
+            pins.servoWritePin(servoRightPin, 80);
             basic.pause(700);
 
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             
         }
-        basic.pause(300);
     }
     
 
@@ -64,14 +61,14 @@ namespace RobotZoo {
     //% weight=400
     export function poke() {
         for(let i = 0; i < 8; i++) {
-            pins.servoWritePin(AnalogPin.P15, 68);
-            pins.servoWritePin(AnalogPin.P16, 112);
+            pins.servoWritePin(servoLeftPin, 112);
+            pins.servoWritePin(servoRightPin, 68);
             basic.pause(300);
 
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(150);
         }
     }
@@ -85,40 +82,40 @@ namespace RobotZoo {
     //% weight=300
     export function stroll() {
         for(let i = 0; i < 3; i++) {
-            pins.servoWritePin(AnalogPin.P15, 68);
-            pins.servoWritePin(AnalogPin.P16, 112);
+            pins.servoWritePin(servoLeftPin, 112);
+            pins.servoWritePin(servoRightPin, 68);
             basic.pause(500);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(700);
 
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 48);
+            pins.servoWritePin(servoLeftPin, 48);
+            pins.servoWritePin(servoRightPin, 48);
             basic.pause(500);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(100);
 
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 132);
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 48);
             basic.pause(700);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(700);
 
-            pins.servoWritePin(AnalogPin.P15, 132);
-            pins.servoWritePin(AnalogPin.P16, 132);
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 132);
             basic.pause(800);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(300);
         }
     }
@@ -132,38 +129,38 @@ namespace RobotZoo {
     //% weight=200
     export function lookAlound() {
         for(let i = 0; i < 3; i++) {
-            pins.servoWritePin(AnalogPin.P15, 58);
-            pins.servoWritePin(AnalogPin.P16, 122);
+            pins.servoWritePin(servoLeftPin, 122);
+            pins.servoWritePin(servoRightPin, 58);
             basic.pause(500);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(400);
 
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 48);
+            pins.servoWritePin(servoLeftPin, 48);
+            pins.servoWritePin(servoRightPin, 48);
             basic.pause(150);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(500);
 
-            pins.servoWritePin(AnalogPin.P15, 132);
-            pins.servoWritePin(AnalogPin.P16, 132);
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 132);
             basic.pause(300);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(500);
 
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 48);
+            pins.servoWritePin(servoLeftPin, 48);
+            pins.servoWritePin(servoRightPin, 48);
             basic.pause(150);
-            pins.servoWritePin(AnalogPin.P15, 90);
-            pins.servoWritePin(AnalogPin.P16, 90);
-            pins.analogWritePin(AnalogPin.P15, 0);
-            pins.analogWritePin(AnalogPin.P16, 0);
+            pins.servoWritePin(servoLeftPin, 90);
+            pins.servoWritePin(servoRightPin, 90);
+            pins.analogWritePin(servoLeftPin, 0);
+            pins.analogWritePin(servoRightPin, 0);
             basic.pause(300);
         }
     }
@@ -176,14 +173,14 @@ namespace RobotZoo {
     //% group="かんさつ"
     //% weight=100
     export function rush() {
-        pins.servoWritePin(AnalogPin.P15, 0);
-        pins.servoWritePin(AnalogPin.P16, 180);
+        pins.servoWritePin(servoLeftPin, 180);
+        pins.servoWritePin(servoRightPin, 0);
         basic.pause(1000);
 
-        // pins.servoWritePin(AnalogPin.P15, 90);
-        // pins.servoWritePin(AnalogPin.P16, 90);
-        // pins.analogWritePin(AnalogPin.P15, 0);
-        // pins.analogWritePin(AnalogPin.P16, 0);
+        // pins.servoWritePin(servoLeftPin, 90);
+        // pins.servoWritePin(servoRightPin, 90);
+        // pins.analogWritePin(servoLeftPin, 0);
+        // pins.analogWritePin(servoRightPin, 0);
         // basic.pause(100);
     }
 }

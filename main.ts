@@ -6,17 +6,15 @@
 //     . # # # .
 //     `);
 
-// 各ピン番号は適宜変更
-/* 現行の設定
- * LED:P0, P1
- * sound:P2
- * servo:P15, P16
- */
-
-/* 変更予定
+/*
  * LED(digital):P0,P1
  * sound(PWM):P2
  * servo(PWM):P15(L), P16(R)
+ */
+
+/*
+ * P15 : left f180
+ * P16 : right f0
  */
 
 //LEDピン番号
@@ -45,11 +43,15 @@ enum direction {
     //% block="まえ"
     forward = 1,
     //% block="うしろ"
-    backward = -1
+    backward = -1,
+    //% block="ひだり"
+    left = -10,
+    //% block="みぎ"
+    right = 10
 }
 
 // 左右
-enum leftRight {
+enum lr {
     //% block="ひだり"
     left = -1,
     //% block="みぎ"
@@ -74,24 +76,19 @@ enum presetSound {}
 //初期設定
 //スピーカー
 //P2を音声出力のピンに設定
-pins.analogSetPitchPin(AnalogPin.P2);
+pins.analogSetPitchPin(speakerPin);
 music.setVolume(0);
 //スピーカーをPWM出力の対象から外す
-pins.digitalWritePin(DigitalPin.P2, 0);
+// pins.digitalWritePin(DigitalPin.P2, 0);
 //サーボモーター
-pins.servoWritePin(AnalogPin.P15, 90);
-pins.servoWritePin(AnalogPin.P16, 90);
-pins.analogWritePin(AnalogPin.P15, 0);
-pins.analogWritePin(AnalogPin.P16, 0);
+pins.servoWritePin(servoLeftPin, 90);
+pins.servoWritePin(servoRightPin, 90);
+pins.analogWritePin(servoLeftPin, 0);
+pins.analogWritePin(servoRightPin, 0);
 //LED
 let eyeBrightness = presetEyeBrightness.usual;
 RobotZoo.openEyes();
 
-/**
- * ロボット動物園
- * P15 : left f180
- * P16 : right f0
- */
 
 //% block="ロボット動物園"
 //% weight=200 color=#ff8308 icon=""
@@ -107,17 +104,15 @@ namespace RobotZoo {
     function setServoSpeed(_speed: presetSpeed, _dir:direction){
         let spL = 90 - _speed * _dir;
         let spR = 90 + _speed * _dir;
-        pins.servoWritePin(AnalogPin.P15, spL);
-        pins.servoWritePin(AnalogPin.P16, spR);
-        RobotZoo.openEyes();
+        pins.servoWritePin(servoLeftPin, spL);
+        pins.servoWritePin(servoRightPin, spR);
     }
 
-    function setServoLeftRight(_speed: presetSpeed, _lr:leftRight){
+    function setServolr(_speed: presetSpeed, _lr:lr){
         let spL = 90 - _speed * _lr;
         let spR = 90 - _speed * _lr;
-        pins.servoWritePin(AnalogPin.P15, spL);
-        pins.servoWritePin(AnalogPin.P16, spR);
-        RobotZoo.openEyes();
+        pins.servoWritePin(servoLeftPin, spL);
+        pins.servoWritePin(servoRightPin, spR);
     }
 
     /**
@@ -130,14 +125,13 @@ namespace RobotZoo {
     //% weight=550
     export function keepStill(): void {
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
 
         //サーボを設定
-        pins.servoWritePin(AnalogPin.P15, 90);
-        pins.servoWritePin(AnalogPin.P16, 90);
-        pins.analogWritePin(AnalogPin.P15, 0);
-        pins.analogWritePin(AnalogPin.P16, 0);
-        // RobotZoo.openEyes();
+        pins.servoWritePin(servoLeftPin, 90);
+        pins.servoWritePin(servoRightPin, 90);
+        pins.analogWritePin(servoLeftPin, 0);
+        pins.analogWritePin(servoRightPin, 0);
         basic.pause(300);
     }
 
@@ -152,12 +146,12 @@ namespace RobotZoo {
     //% block=""
     export function goStraigt(_speed: presetSpeed, _duration: number): void {
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
 
         //サーボを設定
-        // setServoSpeed(_speed, direction.まえ);
-        pins.servoWritePin(AnalogPin.P15, 48);
-        pins.servoWritePin(AnalogPin.P16, 132);
+        // setServoSpeed(_speed, direction.forward);
+        pins.servoWritePin(servoLeftPin, 132);
+        pins.servoWritePin(servoRightPin, 48);
         basic.pause(_duration);
     }
 
@@ -171,12 +165,12 @@ namespace RobotZoo {
     //% block=""
     export function goBack(_speed: presetSpeed, _duration: number): void {
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
 
         //サーボを設定
-        //setServoSpeed(_speed, direction.うしろ);
-        pins.servoWritePin(AnalogPin.P15, 132);
-        pins.servoWritePin(AnalogPin.P16, 48);
+        //setServoSpeed(_speed, direction.backward);
+        pins.servoWritePin(servoLeftPin, 48);
+        pins.servoWritePin(servoRightPin, 132);
         basic.pause(_duration);
     }
 
@@ -188,17 +182,17 @@ namespace RobotZoo {
     //% group="つくる"
     //% weight=800
     //% block=""
-    export function turn(_dir: leftRight, _speed: presetSpeed, _duration: number): void {
+    export function turn(_dir: lr, _speed: presetSpeed, _duration: number): void {
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
 
         //サーボを設定
-        if(_dir==1){
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 90);
-        }else if(_dir==-1){
-            pins.servoWritePin(AnalogPin.P15, 132);
-            pins.servoWritePin(AnalogPin.P16, 90);
+        if(_dir==10){ //right
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 90);
+        }else if(_dir==-10){ //left
+            pins.servoWritePin(servoLeftPin, 48);
+            pins.servoWritePin(servoRightPin, 90);
         }
         basic.pause(_duration);
     }
@@ -211,18 +205,18 @@ namespace RobotZoo {
     //% group="つくる"
     //% weight=700
     //% block=""
-    export function lookBack(_lr: leftRight, _speed: presetSpeed, _duration: number): void {
+    export function lookBack(_lr: lr, _speed: presetSpeed, _duration: number): void {
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
 
         //サーボを設定
-        // setServoLeftRight(_speed, _lr);
-        if(_lr==1){
-            pins.servoWritePin(AnalogPin.P15, 48);
-            pins.servoWritePin(AnalogPin.P16, 48);
-        }else if(_lr==-1){
-            pins.servoWritePin(AnalogPin.P15, 132);
-            pins.servoWritePin(AnalogPin.P16, 132);
+        // setServolr(_speed, _lr);
+        if(_lr==1){ //right
+            pins.servoWritePin(servoLeftPin, 132);
+            pins.servoWritePin(servoRightPin, 132);
+        }else if(_lr==-1){ //left
+            pins.servoWritePin(servoLeftPin, 48);
+            pins.servoWritePin(servoRightPin, 48);
         }
         basic.pause(_duration);
     }
@@ -259,8 +253,8 @@ namespace RobotZoo {
     //% weight=400
     //% block=""
     export function openEyes(): void {
-        pins.digitalWritePin(DigitalPin.P0, 1);
-        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(ledLeftPin, 1);
+        pins.digitalWritePin(ledRightPin, 1);
     }
 
     /**
@@ -271,8 +265,8 @@ namespace RobotZoo {
     //% weight=300
     //% block=""
     export function closeEyes(): void {
-        pins.digitalWritePin(DigitalPin.P0, 0);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(ledLeftPin, 0);
+        pins.digitalWritePin(ledRightPin, 0);
     }
 
     /**
@@ -311,13 +305,13 @@ namespace RobotZoo {
     //% block=""
     export function sound(_animal: presetSound, _duration: number): void {
         //サーボをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P15, 0);
-        pins.digitalWritePin(DigitalPin.P16, 0);
+        // pins.digitalWritePin(DigitalPin.P15, 0);
+        // pins.digitalWritePin(DigitalPin.P16, 0);
         //P2を音声出力のピンに設定
-        pins.analogSetPitchPin(AnalogPin.P2);
+        pins.analogSetPitchPin(speakerPin);
         music.playMelody("C5 B A G F E D C ", 120);
         //スピーカーをPWM出力の対象から外す
-        pins.digitalWritePin(DigitalPin.P2, 0);
+        // pins.digitalWritePin(DigitalPin.P2, 0);
     }
 
     //「ずっと」内でのメロディー再生用のフラグ
