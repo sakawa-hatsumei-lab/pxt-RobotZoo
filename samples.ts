@@ -47,7 +47,6 @@ namespace RobotZoo {
             pins.servoWritePin(servoRightPin, 90);
             pins.analogWritePin(servoLeftPin, 0);
             pins.analogWritePin(servoRightPin, 0);
-            
         }
     }
     
