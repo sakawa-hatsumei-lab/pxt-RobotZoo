@@ -31,11 +31,11 @@ enum direction {
 //スピード
 enum presetSpeed {
     //% block="ゆっくり"
-    slow = 13,
+    slow = 12,
     //% block="ふつうに"
-    mid = 30,
+    mid = 23,
     //% block="はやく"
-    fast = 80,
+    fast = 90,
     //% block="とまる"
     // stop = 0
 }
@@ -69,7 +69,7 @@ namespace RobotZoo {
     /**
      * ロボットを指定した時間止める
      */
-    //% block="じっとする : $_duration|ミリ秒"
+    //% block="$_duration|ミリ秒間　じっとする"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -87,7 +87,7 @@ namespace RobotZoo {
     /**
      * ロボットが進む向き、スピード、動く時間を決める
      */
-    //% block=" $_speed|まえにすすむ : $_duration|ミリ秒"
+    //% block="$_duration|ミリ秒で、$_speed|まえにすすむ"
     //% _speed.min=0 _speed.max=100
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
@@ -104,7 +104,7 @@ namespace RobotZoo {
     /**
      * ロボットが下がる向き、スピード、動く時間を決める
      */
-    //% block=" $_speed|うしろにさがる : $_duration|ミリ秒"
+    //% block="$_duration|ミリ秒で、$_speed|うしろにさがる"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -120,7 +120,7 @@ namespace RobotZoo {
     /**
      * ロボットが曲がる向き、スピード、動く時間を決める
      */
-    //% block="$_speed|$_dir|にまがる : $_duration|ミリ秒"
+    //% block="$_duration|ミリ秒で、$_speed|$_dir|にまがる"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -144,7 +144,7 @@ namespace RobotZoo {
     /**
      * ロボットがどちらに振り向くか、スピード、動く時間を決める
      */
-    //% block="$_speed|$_dir|にふりむく : $_duration|ミリ秒"
+    //% block="$_duration|ミリ秒で、$_speed|$_dir|にふりむく"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -165,7 +165,7 @@ namespace RobotZoo {
     /**
      * 直前の動きを指定した時間続ける
      */
-    //% block="つづける : $_duration|ミリ秒間 "
+    //% block="$_duration|ミリ秒間 つづける"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -202,7 +202,7 @@ namespace RobotZoo {
     /**
      * ロボットのまばたきの回数、かける時間を決める
      */
-    //% block="$_duration|ミリ秒かけて$_count|回まばたきする "
+    //% block="$_duration|ミリ秒で、$_count|回まばたきする "
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -221,7 +221,7 @@ namespace RobotZoo {
     /**
      * ウインクする
      */
-    //% block="$_duration|ミリ秒かけて$_dir|めをウインクする"
+    //% block="$_duration|ミリ秒かけて、$_dir|めをウインクする"
     //% _duration.shadow="timePicker"
     //% _duration.defl=500
     //% group="つくる"
@@ -254,8 +254,6 @@ namespace RobotZoo {
         pins.analogSetPitchPin(speakerPin);
         music.setVolume(0);
         music.playMelody("C5 B A G F E D C ", 120);
-        //スピーカーをPWM出力の対象から外す
-        // pins.digitalWritePin(DigitalPin.P2, 0);
     }
 
     //「ずっと」内でのメロディー再生用のフラグ
